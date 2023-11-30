@@ -58,7 +58,21 @@
         }else{
             alert("กรุณากรอกชื่อ !");
         }
-       
+    };
+
+    const showEdit = (id) => {
+        $("#show").load("app/university/edit.php" , {id});
+    };
+
+    const edit = (id) => {
+        $.post("app/university/pro.php",{ 
+            status : 'u' ,
+            uni_name : $("#uni_name").val(),
+            id : id
+        },data => {
+            showlist();
+            alert(data);
+        });
     };
 
     

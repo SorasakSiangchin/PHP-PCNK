@@ -25,7 +25,7 @@
             <td><?php echo $row['uni_id'] ?></td>
             <td><?php echo $row['uni_name'] ?></td>
             <td>
-                <button class="btn btn-warning" onclick="shoeEdit('<?php echo $row['uni_id'] ?>')">
+                <button class="btn btn-warning" onclick="showEdit('<?php echo $row['uni_id'] ?>')">
                     edit
                 </button>
                 <button class="btn btn-danger" onclick="del('<?php echo $row['uni_id'] ?>')">
@@ -47,7 +47,9 @@
         echo "ok";
     }
     elseif($_POST['status'] == "u"){
-
+         $sql = "UPDATE university SET uni_name='".$_POST['uni_name']."' WHERE uni_id = '".$_POST['id']."'";
+         in_up_delSql($sql);
+         echo "ok";
     }
     elseif($_POST['status'] == "d"){
         $sql = "DELETE FROM university WHERE uni_id = '".$_POST['id']."'";
