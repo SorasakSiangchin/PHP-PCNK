@@ -5,6 +5,11 @@
   foreach ($result as $row) {};
  ?>
 
+<?php 
+  $sql1 = "SELECT * FROM university WHERE uni_id<>0 ";
+  $result1 = selectSql($sql1);
+ ?>
+
 <div class="card w-100">
   <div class="card-body">
   <form>
@@ -20,7 +25,13 @@
     <br/>
     <input type="phone" id="use_phone" value="<?php echo $row['use_phone'] ?>" class="form-control" placeholder="เบอร์โทร">
     <br/>
-    <input type="number" id="use_uni_id" value="<?php echo $row['use_uni_id'] ?>" class="form-control" placeholder="มหาวิทยาลัย">
+    <select id="use_uni_id" class="form-control">
+        <?php  
+        foreach ($result1 as $row1) {?>
+            <option value="<?php echo $row1['uni_id'] ?>"><?php echo $row1['uni_name'] ?></option>
+        <?php };
+        ?>
+    </select>
     <br/>
     <button type="button" class="btn btn-secondary" onclick="showUsers()">
         กลับ

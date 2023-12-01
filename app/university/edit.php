@@ -3,6 +3,7 @@
   include '../../js/function_db.php';
   $sql = "SELECT * FROM university WHERE uni_id = '".$_POST['id']."'";
   $result = selectSql($sql);
+  
   foreach ($result as $row) {};
  ?>
 

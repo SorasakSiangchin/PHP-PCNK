@@ -1,4 +1,10 @@
 
+<?php 
+  include '../../js/function_db.php';
+  $sql = "SELECT * FROM university WHERE uni_id<>0 ";
+  $result = selectSql($sql);
+ ?>
+
 <div class="card w-100">
   <div class="card-body">
   <form>
@@ -14,8 +20,16 @@
     <br/>
     <input type="phone" id="use_phone"  class="form-control" placeholder="เบอร์โทร">
     <br/>
-    <input type="number" id="use_uni_id"  class="form-control" placeholder="มหาวิทยาลัย">
+    <select id="use_uni_id" class="form-control">
+        <?php  
+        foreach ($result as $row) {?>
+            <option value="<?php echo $row['uni_id'] ?>"><?php echo $row['uni_name'] ?></option>
+        <?php };
+        ?>
+    </select>
+
     <br/>
+
     <button type="button" class="btn btn-secondary" onclick="showUsers()">
         กลับ
     </button>
