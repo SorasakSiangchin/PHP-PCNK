@@ -22,12 +22,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" onclick="userShows(); showUsers();">
             ผู้ใช้งาน
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" onclick="uniShows()">
+        <a class="nav-link" href="#" onclick="uniShows(); showlist();">
             มหาวิทยาลัย
         </a>
       </li>
@@ -47,14 +47,14 @@
    
         
         const userShows = () => {
-
+            $('#showMain').load("app/user/show.php");
         };
 
         const uniShows = () => {
             $('#showMain').load("app/university/show.php");
         };  
         
-        uniShows()
+        userShows();
         
     </script>
 
