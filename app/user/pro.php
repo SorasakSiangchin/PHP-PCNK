@@ -2,7 +2,7 @@
     include "../../js/function_db.php";
 
     if($_POST["status"] == "r"){
-        $sql = "SELECT * FROM users WHERE use_email<>''";
+        $sql = "SELECT * FROM users JOIN university ON university.uni_id = users.use_uni_id WHERE use_email<>''";
 
         if($_POST['searchs'] != ""){
             $sql .= " AND use_email LIKE '%".$_POST['searchs']."%'";
@@ -34,7 +34,7 @@
             <td>
           
              <?php 
-              echo $row['use_uni_id']
+              echo $row['uni_name']
            
              ?>
 
