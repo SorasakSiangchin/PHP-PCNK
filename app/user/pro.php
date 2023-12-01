@@ -4,12 +4,19 @@
     if($_POST["status"] == "r"){
         $sql = "SELECT * FROM users JOIN university ON university.uni_id = users.use_uni_id WHERE use_email<>''";
 
-        if($_POST['searchs'] != ""){
-            $sql .= " AND use_email LIKE '%".$_POST['searchs']."%'";
-        };
+    if($_POST['searchs'] != "")
+    {
+        $sql .= " AND use_email LIKE '%".$_POST['searchs']."%'";
+    };
 
-        $result= selectSql($sql);
+    if($_POST['uniFilter'] != "")
+    {
+        $sql .= " AND use_uni_id = '".$_POST['uniFilter']."'";
+    };
+
+    $result= selectSql($sql);
 ?>
+
 <div class="table-responsive-sm w-100">
     <table class="table table-striped border border-dark">
         <thead class="table table-dark">
@@ -33,10 +40,7 @@
             <td><?php echo $row['use_phone'] ?></td>
             <td>
           
-             <?php 
-              echo $row['uni_name']
-           
-             ?>
+             <?php echo $row['uni_name'] ?>
 
              </td>
             <td>
