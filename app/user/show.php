@@ -34,7 +34,7 @@
         $.post("app/user/pro.php" , {
             status: 'r',
             searchs : $("#searchs").val() ,
-            uniFilter : $("#uniFilter").val()
+            uniFilter : $("#uniFilter").val() || ""
         } ,data => $("#showUser").html(data));
     };
     showUsers();
@@ -67,8 +67,8 @@
             email : email
         } , data => {
             if(data == "ok"){
-                    alert("ลบข้อมูลสำเร็จ");
-                }
+                alert("ลบข้อมูลสำเร็จ");
+            };
             showUsers();
         });
     };
